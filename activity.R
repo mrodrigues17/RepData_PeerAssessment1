@@ -40,7 +40,7 @@ max_steps <- filter(activity_interval_subset, steps == max(steps))
 library(ggplot2)
 ggplot(activity_interval_subset, aes(interval, steps)) +
         geom_line() +
-        geom_text(data = max_steps, aes(x = interval, y = steps, label = "Max = Interval 104")) +
+        geom_text(data = max_steps, aes(x = interval, y = steps, label = "Max = Interval 835")) +
         ggtitle("Average Steps for Each Five Minute Interval")
 #calculate the number of rows with NA values for steps (2304)
 sum(is.na(activity$steps))
@@ -70,29 +70,14 @@ hist(grouped_merged$Steps, xlab = "Number of Steps per Day",
 #create new factor indicating if the day is weekday or weekend
 merged_data$day <- ifelse(weekdays(merged_data$date) %in% c("Saturday", "Sunday"), "weekend",
         "weekday")
-#create weekends and weekdays, grouped by interval and plot
-weekends <- merged_data %>%
-        filter(day == "weekend") %>%
-        group_by(interval) %>%
+merged_days <- merged_data %>%
+        group_by(interval, day) %>%
         summarise(Steps = mean(steps))
 
-weekdays <- merged_data %>%
-        filter(day == "weekday") %>%
-        group_by(interval) %>%
-        summarise(Steps = mean(steps))
-
-p1 <- ggplot(weekends, aes(interval, Steps)) +
+ggplot(merged_days, aes(interval, Steps)) +
         geom_line() +
-        ggtitle("Average Steps for Each Five Minute Interval on Weekends")
-
-p2 <- ggplot(weekdays, aes(interval, Steps)) +
-        geom_line() +
-        ggtitle("Average Steps for Each Five Minute Interval on Weekdays")
-
-library(Rmisc)
-multiplot(p1, p2)
-
-
-
+        ggtitle("Average Steps for Each Five Minute Interval on Weekends") + 
+        facet_wrap(~day)
+  
 
 
