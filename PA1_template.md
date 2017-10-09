@@ -3,6 +3,8 @@ title: "Activity Dataset Assignment"
 output:
   html_document
 ---
+## Loading and preprocessing the data
+
 First the data files need to be downloaded, unzipped and read into R.
 
 ```r
@@ -39,6 +41,8 @@ hist(activity_subset$Steps, xlab = "Number of Steps per Day",
 
 ![plot of chunk plot histogram](figures/plot_histogram-1.png)
 
+## What is mean total number of steps taken per day?
+
 Calculate the mean and median number of steps taken each day.
 
 ```r
@@ -66,6 +70,9 @@ activity_interval_subset <- activity %>%
         group_by(interval) %>%
         summarise(steps = mean(steps))
 ```
+
+## What is the average daily activity pattern?
+
 The average steps for each interval is plotted, and the interval with the maximum value for steps is labeled on the plot. The plot is a time series for the 5 minute intervals.
 
 ```r
@@ -89,6 +96,9 @@ sum(is.na(activity$steps))
 ```
 ## [1] 2304
 ```
+## Imputing missing values
+
+
 Since the missing NA values are potentially meaningful, the NAs will be imputed by taking the average for each interval and then applying this mean to each value that corresponds to the interval. First, a data frame with the NA rows needs to be created.
 
 ```r
@@ -128,6 +138,8 @@ hist(grouped_merged$Steps, xlab = "Number of Steps per Day",
 ```
 
 ![plot of chunk histogram 2](figures/histogram_2-1.png)
+
+## Are there differences in activity patterns between weekdays and weekends?
 
 Now the weekdays and weekends are going to be compared. A new variable "day" is created with 2 levels, "weekday" and "weekend".
 
