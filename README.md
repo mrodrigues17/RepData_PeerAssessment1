@@ -1,4 +1,4 @@
-Please see the R markdown file titles "PA1_template.rmd" to view my submission.
+Please see the markdown file titled "PA1_template.md" to view my submission.
 
 
 ## Introduction
