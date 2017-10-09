@@ -1,6 +1,7 @@
 ---
 title: "Activity Dataset Assignment"
-output: html_document
+output:
+  html_document
 ---
 First the data files need to be downloaded, unzipped and read into R.
 
