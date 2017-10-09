@@ -1,3 +1,6 @@
+Please see the R markdown file titles "PA1_template.rmd" to view my submission.
+
+
 ## Introduction
 
 It is now possible to collect a large amount of data about personal
