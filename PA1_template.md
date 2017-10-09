@@ -37,7 +37,7 @@ hist(activity_subset$Steps, xlab = "Number of Steps per Day",
         main = "Histogram of Total Steps per Day", col = "blue", labels = T, ylim = c(0,30))
 ```
 
-![plot of chunk plot histogram](figure/plot histogram-1.png)
+![plot of chunk plot histogram](figure/plot_histogram-1.png)
 
 Calculate the mean and median number of steps taken each day.
 
@@ -78,7 +78,7 @@ ggplot(activity_interval_subset, aes(interval, steps)) +
         ggtitle("Average Steps for Each Five Minute Interval")
 ```
 
-![plot of chunk interval avg plot](figure/interval avg plot-1.png)
+![plot of chunk interval avg plot](figure/interval_avg_plot-1.png)
 
 Calculate the number of NA values for steps
 
@@ -127,7 +127,7 @@ hist(grouped_merged$Steps, xlab = "Number of Steps per Day",
         main = "Histogram of Total Steps per Day", col = "red", labels = T, ylim = c(0,40))
 ```
 
-![plot of chunk histogram 2](figure/histogram 2-1.png)
+![plot of chunk histogram 2](figure/histogram_2-1.png)
 
 Now the weekdays and weekends are going to be compared. A new variable "day" is created with 2 levels, "weekday" and "weekend".
 
@@ -151,5 +151,5 @@ ggplot(merged_days, aes(interval, Steps)) +
         facet_wrap(~day)
 ```
 
-![plot of chunk weekend_weekday plots](figure/weekend_weekday plots-1.png)
+![plot of chunk weekend_weekday plots](figure/weekend_weekday_plots-1.png)
 
