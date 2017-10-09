@@ -165,3 +165,5 @@ ggplot(merged_days, aes(interval, Steps)) +
 
 ![plot of chunk weekend_weekday plots](figures/weekend_weekday_plots-1.png)
 
+Weekdays had a higher peak, right around 8:30 AM.
+
